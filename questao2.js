@@ -1,11 +1,18 @@
-function questao2(array_,inicial) {
-  
-  for (var i = 0; i < array_.length; i++) {
-    
-    if (array_[i].indexOf(inicial) !== 0){
-        array_.splice(i,1);
-        i=i-1
-    }	 
-}
-	console.log(array_);
-}
+var style = function(elemento, atrib, val) { 
+    elemento = document.querySelectorAll(elemento);
+    if (elemento.length > 0)     
+        val = elemento[0].style[atrib];
+    return val = val || 'Elemento sem atributo';
+};
+
+var assert = function(funcao, retorno){
+    return funcao === retorno ? true : false;};
+
+console.log(assert(style('div','background'),'red'));
+
+
+
+
+
+
+
