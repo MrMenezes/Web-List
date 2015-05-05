@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>questao 06</title>
+</head>
+<body>
+
+    <style>
+        .block { display: block;  }
+         
+    </style>
+    
+    <form id="formulario" method="post">
+        <label class="block" for="nome">Nome</label>
+        <input class="block" type="text" name="nome" id="nome" pattern="[A-Za-z]+" title="Somente letras" required>
+
+        <label class="block" for="sobrenome">Sobrenome</label>
+        <input class="block" type="text" name="sobrenome" id="sobrenome" pattern="[A-Za-z]+" title="Somente letras" required>
+
+        <label class="block" for="salario">Salario</label>
+        <input class="block" type="text" name="salario" id="salario" pattern="[0-9.]+" title="Somente números" required>
+        <br>
+        <input class="block"  type="submit" value="Cadastrar" id="enviar">
+    </form>
+      </div>
+
+    <script>
+       var empregados = [];
+var Empregado = function(nome_, sobrenome_, salario_){
+    var nome            = nome_;
+    var sobrenome       = sobrenome_;
+    var salarioMensal   = salario_;
+
+    this.calcularSalarioAno = function(){
+        return salarioMensal * 12;
+    }
+
+    this.dadosEmpregado = function(){
+        return nome + " " + sobrenome + ", Salário: " + salarioMensal;
+    }
+};
+var _form = document.getElementById('formulario').addEventListener('submit', function(e){
+var empreg = new Empregado(document.getElementsByName('nome')[0].value,document.getElementsByName('sobrenome')[0].value,document.getElementsByName('salario')[0].value)
+empregados.push(empreg);
+
+alert('Cadastrado!');
+limpaCampos();
+function limpaCampos(){
+            var campos = document.getElementsByTagName('input');
+            for (var i = 0; i < campos.length; i++)
+                if (campos[i].getAttribute("type") == 'text')
+                    campos[i].value = '';
+        }
+console.log(empreg.dadosEmpregado() );
+            
+            e.preventDefault();
+        }, false);
+    </script>
+
+</body>
+</html>
