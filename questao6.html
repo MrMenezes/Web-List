@@ -25,21 +25,11 @@
     </form>
       </div>
 
+    <script src="questao5.js"></script>
     <script>
        var empregados = [];
-var Empregado = function(nome_, sobrenome_, salario_){
-    var nome            = nome_;
-    var sobrenome       = sobrenome_;
-    var salarioMensal   = salario_;
 
-    this.calcularSalarioAno = function(){
-        return salarioMensal * 12;
-    }
 
-    this.dadosEmpregado = function(){
-        return nome + " " + sobrenome + ", Salário: " + salarioMensal;
-    }
-};
 var _form = document.getElementById('formulario').addEventListener('submit', function(e){
 var empreg = new Empregado(document.getElementsByName('nome')[0].value,document.getElementsByName('sobrenome')[0].value,document.getElementsByName('salario')[0].value)
 empregados.push(empreg);
